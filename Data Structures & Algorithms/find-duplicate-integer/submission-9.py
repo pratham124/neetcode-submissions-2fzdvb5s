@@ -1,0 +1,16 @@
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        
+        n = len(nums)
+        i = 0
+
+        while i < n:
+            if nums[i] == i + 1:
+                i += 1
+            else:
+                correct_idx = nums[i] - 1
+                if nums[i] == nums[correct_idx]:
+                    return nums[i]
+                nums[i], nums[correct_idx] = nums[correct_idx], nums[i]
+                
+            
